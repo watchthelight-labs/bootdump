@@ -1,0 +1,19 @@
+# <wtl> project: bootdump | file: bootdump.conf.example | author: watchthelight </wtl>
+# Copy to /Library/Application Support/bootdump/bootdump.conf (owned by root, mode 644; bootdump.sh runs as root and
+# ignores the file otherwise). Values left out keep the defaults shown here.
+
+# Where the dumps go, one folder per boot named after the boot time (UTC).
+BOOTDUMP_DIR=/Users/Shared/bootdump
+# Boots to keep.
+BOOTDUMP_KEEP=10
+# Seconds after boot for each snapshot.
+BOOTDUMP_TIMES="20 60 180 300"
+# IORegistry classes (ioreg -r -c) and entry names (ioreg -r -n) to dump at each snapshot. The defaults are for an
+# NVIDIA driver (NVRM, NVRMDisplay) and the framebuffer; for an Intel iGPU try "AppleIntelFramebuffer IOFramebuffer"
+# with names "IGPU", for Wi-Fi something like "IO80211Interface".
+BOOTDUMP_IOREG_CLASSES="NVRM NVRMDisplay IOFramebuffer"
+BOOTDUMP_IOREG_NAMES="GFX0"
+# grep -i pattern for "sysctl debug" (a driver's debug sysctls). Empty: skip.
+BOOTDUMP_SYSCTL_GREP=nv
+# Unified log predicate for one "log show --last boot" at the end. Empty: skip.
+BOOTDUMP_LOG_PREDICATE='sender CONTAINS[c] "NV" OR eventMessage CONTAINS "NVRM"'

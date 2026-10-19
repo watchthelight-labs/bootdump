@@ -1,0 +1,32 @@
+name: Report
+description: A bug, or a report from another Mac or macOS build
+body:
+  - type: input
+    id: machine
+    attributes:
+      label: Mac model and macOS build
+      placeholder: Legion 5 15IAX10 Hackintosh, macOS 26.7.1 (25G241)
+    validations:
+      required: true
+  - type: textarea
+    id: conf
+    attributes:
+      label: Your bootdump.conf (or "defaults")
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: bootdump.out and the file list of the boot folder (ls -la)
+      description: Not the dumps themselves; they contain serial numbers and other identifiers.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected to find, and what was missing or wrong.
+    validations:
+      required: true
