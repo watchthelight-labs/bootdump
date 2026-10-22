@@ -1,9 +1,5 @@
 # bootdump
 
-> **Heads up:** a good portion of this code is AI generated. I do understand how it works,
-> and I'm happy to explain any of it. If something looks wrong or you have a question,
-> open an issue or ping me on Discord (`watchthelight`).
-
 A LaunchDaemon that takes snapshots of the kernel log, the IORegistry and a few other things at fixed times after every boot, so a boot that never reaches a usable desktop (a black screen, a frozen panel, a hang at login) can still be read afterwards from the next boot or another OS.
 
 I wrote it while bringing up a GPU driver on a Hackintosh, where a bad boot leaves you with a dark panel and no way to type `dmesg`. The defaults reflect that (NVIDIA driver classes and sysctls), but every list is a setting.
